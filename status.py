@@ -2,7 +2,7 @@ import os
 import time
 os.system("clear")
 
-TOKEN = "token_da_sua_conta"
+TOKENHERE = "token_da_sua_conta"
 APPID = appid
 
 class bcolors:
@@ -17,6 +17,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 print(f"{bcolors.WARNING}DISCORD STATUS{bcolors.ENDC}")
+print(f"{bcolors.WARNING}By H.k.{bcolors.ENDC}")
 time.sleep(1.5)
 print(f"{bcolors.UNDERLINE}                           {bcolors.ENDC}")
 print("")
@@ -30,7 +31,6 @@ print ("\033[A                             \033[A")
 print ("\033[A                             \033[A")
 print(f"{bcolors.OKBLUE}completo{bcolors.ENDC}")
 print("")
-time.sleep(1.5)
 
 import datetime
 import discord
@@ -52,7 +52,7 @@ print("")
 state1 = input("Status: ")
 print("")
 print(f"{bcolors.WARNING}BETA{bcolors.ENDC} Tempo percorrido")
-elapsed1 = input("n para não ativar o tempo decorrido: ")
+elapsed1 = input("[n para não ativar o tempo decorrido]: ")
 
 imagekey1 = "imagekey1"
 
@@ -66,14 +66,17 @@ hitjack1 = bot.change_presence(activity=discord.Activity(application_id=APPID, n
 async def on_ready():
     print(f"{bcolors.UNDERLINE}                           {bcolors.ENDC}")
     print("")
-    print(f"Logged in as {bcolors.WARNING}{bot.user.name}! {bcolors.ENDC}")
+    print(f"Logged in as {bcolors.OKGREEN}{bot.user.name}! {bcolors.ENDC}")
+    print(f"{bcolors.FAIL}Do not share your token")
+    print(f"with anyone else!{bcolors.ENDC}")
     time.sleep(1.5)
     print("")
     if elapsed1 == "n" :
     	await hitjack1
     else :
     	await hitjack
-    print(f"{bcolors.WARNING}status on!{bcolors.ENDC}")
+    print(f"{bcolors.OKBLUE}Custom Status applied{bcolors.ENDC}")
+    print(f"{bcolors.UNDERLINE}                           {bcolors.ENDC}")
     print("")
   
      
@@ -92,4 +95,4 @@ async def stop(ctx):
         await bot.close()
         time.sleep(3)
        
-bot.run(TOKEN, bot = False) 
+bot.run(TOKENHERE, bot = False) 
