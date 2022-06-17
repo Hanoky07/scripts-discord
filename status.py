@@ -2,8 +2,8 @@ import os
 import time
 os.system("clear")
 
-TOKENHERE = "token_da_sua_conta"
-APPID = id do app
+TOKEN = "token_da_sua_conta"
+APPID = appid
 
 class bcolors:
     HEADER = '\033[95m'
@@ -30,6 +30,7 @@ print ("\033[A                             \033[A")
 print ("\033[A                             \033[A")
 print(f"{bcolors.OKBLUE}completo{bcolors.ENDC}")
 print("")
+time.sleep(1.5)
 
 import datetime
 import discord
@@ -51,37 +52,36 @@ print("")
 state1 = input("Status: ")
 print("")
 print(f"{bcolors.WARNING}BETA{bcolors.ENDC} Tempo percorrido")
-elapsed1 = input("[n para não ativar o tempo decorrido]: ")
+elapsed1 = input("n para não ativar o tempo decorrido: ")
 
 imagekey1 = "imagekey1"
 
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 
 
-status = bot.change_presence(activity=discord.Activity(application_id=APPID, name=name1, type=discord.ActivityType.playing, state=state1, details=detail1, assets={'large_image_key' : imagekey1, 'large_text' : 'image'}, timestamps={'start' : unix_timestamp}))
-status1 = bot.change_presence(activity=discord.Activity(application_id=APPID, name=name1, type=discord.ActivityType.playing, state=state1, details=detail1, assets={'large_image_key' : imagekey1, 'large_text' : 'image'}))
+hitjack = bot.change_presence(activity=discord.Activity(application_id=APPID, name=name1, type=discord.ActivityType.playing, state=state1, details=detail1, assets={'large_image_key' : imagekey1, 'large_text' : 'image'}, timestamps={'start' : unix_timestamp}))
+hitjack1 = bot.change_presence(activity=discord.Activity(application_id=APPID, name=name1, type=discord.ActivityType.playing, state=state1, details=detail1, assets={'large_image_key' : imagekey1, 'large_text' : 'image'}))
 
 @bot.event 
 async def on_ready():
     print(f"{bcolors.UNDERLINE}                           {bcolors.ENDC}")
     print("")
-    print(f"Logged in as {bcolors.OKBLUE}{bot.user.name}! {bcolors.ENDC}")
-    print(f"{bcolors.WARNING}nunca compartilhe o seu token!")
+    print(f"Logged in as {bcolors.WARNING}{bot.user.name}! {bcolors.ENDC}")
     time.sleep(1.5)
     print("")
     if elapsed1 == "n" :
-    	await status1
+    	await hitjack1
     else :
-    	await status
-    print(f"{bcolors.OKBLUE}status aplicado{bcolors.ENDC}")
+    	await hitjack
+    print(f"{bcolors.WARNING}status on!{bcolors.ENDC}")
     print("")
   
      
 async def on_set():
     if elapsed1 == "n" :
-    	await status1
+    	await hitjack1
     else :
-    	await status
+    	await hitjack
     await asyncio.sleep(60)
     client.loop.create_task(on_set())
 
@@ -92,4 +92,4 @@ async def stop(ctx):
         await bot.close()
         time.sleep(3)
        
-bot.run(TOKENHERE, bot = False)
+bot.run(TOKEN, bot = False) 
